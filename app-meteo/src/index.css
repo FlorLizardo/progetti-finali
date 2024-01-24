@@ -1,0 +1,51 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+  background-image: url('./assets/sfondo1.jpg');
+  background-size: cover;
+color: #ffff;
+}
+
+@media screen and (max-width: 575px) {
+  .cardWeather {
+    width: 70%!important;
+    height: 6rem!important;
+  }
+  .divImgCardWeather {
+    width: 22%!important;
+  }
+  .divInfoCard {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cardGiorno {
+    width: 100%!important;
+    height: 15vh!important;
+  }
+  .cardCity {
+    width: 90%;
+    height: 20rem
+  }
+  .colContainer {
+    height: 50%!important;
+  }
+  .divContainer{
+    height: 30%!important;
+  }
+  .graficoContainer{
+    height: 30%!important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cardGiorno {
+    width: 16%!important;
+    height: 20vh!important;
+  }
+  .cardCity {
+    width: 70%;
+    height: 27rem
+  }
+}
