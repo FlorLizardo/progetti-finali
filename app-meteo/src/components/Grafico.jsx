@@ -15,9 +15,11 @@ const Grafico = ({ forecast }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
         <YAxis />
-        <Line type="monotone" dataKey="tempMax" stroke="#0175ff" strokeWidth={2} activeDot={{ r: 8 }} />
+        <Legend />
+        <Tooltip />
+        <Line type="monotone" dataKey="tempMax" stroke="#ff5101"  strokeWidth={2} activeDot={{ r: 8 }} />
         
-        <Line type="monotone" dataKey="tempMin" stroke="#ff5101" strokeWidth={2} activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="tempMin" stroke="#0175ff" strokeWidth={2} activeDot={{ r: 8 }} />
       </ComposedChart>
     </ResponsiveContainer>
   );

@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 const CardsPrevisioni = ({ forecast }) => {
 	const styles = {
 		background:
-			"linear-gradient(360deg, rgba(1,151,255,0.2) 33%, rgba(1,40,255,0.4) 77%)",
+			"linear-gradient(360deg, rgba(1,151,255,0.3) 33%, rgba(65,88,216,0.6) 69%)",
 	};
 
 	return (
@@ -16,9 +16,9 @@ const CardsPrevisioni = ({ forecast }) => {
 				>
 					<h4 className="w-25">{dato?.date}</h4>
 					<span className="fw-medium w-75 text-white">
-						<i class="bi bi-arrow-up"></i>
+						<i className="bi bi-arrow-up"></i>
 						{dato?.tempMax.toFixed(1)} °C / {dato?.tempMin.toFixed(1)} °C
-						<i class="bi bi-arrow-down"></i>
+						<i className="bi bi-arrow-down"></i>
 					</span>
 				</Card>
 			))}

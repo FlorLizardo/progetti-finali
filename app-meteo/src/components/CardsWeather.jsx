@@ -35,7 +35,7 @@ const CardsWeather = () => {
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">
 						<h3 className="h5 text-white-50">Cielo: </h3>
-						<p className="h3 fw-normal">{weatherData.fetchWeather.weather?.[0]?.description}</p>
+						<p className="h4 fw-normal">{weatherData.fetchWeather.weather?.[0]?.description}</p>
 					</div>
 				</Card>
 				<Card
@@ -47,7 +47,7 @@ const CardsWeather = () => {
 					</div>
 					<div className="text-center p-sm-3 p-4 divInfoCard">
 						<h3 className="h5 text-white-50">Nuvole: </h3>
-						<p className="h2 fw-normal">{weatherData.fetchWeather.clouds?.all}%</p>
+						<p className="h4 fw-normal">{weatherData.fetchWeather.clouds?.all}%</p>
 					</div>
 				</Card>
 				<Card
@@ -59,7 +59,7 @@ const CardsWeather = () => {
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">
 						<h3 className="h5 text-white-50">Vento: </h3>
-						<p className="h2 fw-normal">{weatherData.fetchWeather.wind?.speed} km/h</p>
+						<p className="h4 fw-normal">{weatherData.fetchWeather.wind?.speed} km/h</p>
 					</div>
 				</Card>
 				<Card
@@ -71,7 +71,7 @@ const CardsWeather = () => {
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">
 						<h3 className="h5 text-white-50">Umidità: </h3>
-						<p className="h2 fw-normal">{weatherData.fetchWeather.main?.humidity}%</p>
+						<p className="h4 fw-normal">{weatherData.fetchWeather.main?.humidity}%</p>
 					</div>
 				</Card>
 			</Col>

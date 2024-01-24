@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isErrorActions } from "../actions/alertErrorActions";
 import Grafico from "./Grafico";
 import CardsPrevisioni from "./cardsPrevisioni";
+import CardHour from "./CardHour";
 
 const Previsioni = () => {
 	const [forecast, setForecast] = useState([]); //solo i dati delle date e le temperature
@@ -81,14 +82,22 @@ const Previsioni = () => {
 
 	const styles = {
 		colStyle: {
-			backgroundColor: "rgba(71, 156,161, 0.4)", height: '70vh'
+			backgroundColor: "rgba(71, 156,161, 0.4)"
 		},
 		divGrafico: {
-			height: '80%'
+			height: '84%'
 		}
 	}
 
 	return (
+		<>
+		<Col xs="12"
+			md="10"
+			className="my-5 m-auto rounded rounded-3 px-5 py-4"
+			style={styles.colStyle}>
+				<h4 className="pb-3">Il tempo nelle prossime ore</h4>
+				<CardHour datiTotali={datiTotali} />
+		</Col>
 		<Col
 			xs="12"
 			md="8"
@@ -102,9 +111,10 @@ const Previsioni = () => {
 			<Grafico forecast={forecast} />
 			</div>
 			<div className="d-block d-md-none">
-				<CardsPrevisioni forecast={forecast} datiTotali={datiTotali} />
+				<CardsPrevisioni forecast={forecast} />
 			</div>	
 		</Col>
+		</>
 	);
 };
 

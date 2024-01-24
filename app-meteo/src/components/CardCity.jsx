@@ -43,7 +43,7 @@ const CardCity = () => {
 	let image;
 	switch (statoTempo) {
 		case "Clear":
-			if ((newHour > sunsetHours) || (newHour < sunriseHours)) {
+			if ((newHour < sunriseHours)|| (newHour > sunsetHours)) {
 				image = moonCard;
 			}else {
         image = sunCard
@@ -91,10 +91,10 @@ const CardCity = () => {
 				</h3>
 				<p className="mt-3 h5">
 					<span>
-						<i class="bi bi-arrow-up"></i>
+						<i className="bi bi-arrow-up"></i>
 						{weatherData.fetchWeather?.main?.temp_max.toFixed(1)} °C /{" "}
 						{weatherData.fetchWeather?.main?.temp_min.toFixed(1)} °C
-						<i class="bi bi-arrow-down"></i>
+						<i className="bi bi-arrow-down"></i>
 					</span>
 				</p>
 			</div>

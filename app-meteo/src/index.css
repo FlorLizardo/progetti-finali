@@ -17,6 +17,7 @@ color: #ffff;
   .divInfoCard {
     width: 70%;
   }
+ 
 }
 
 @media screen and (max-width: 767px) {
@@ -37,7 +38,14 @@ color: #ffff;
   .graficoContainer{
     height: 30%!important;
   }
+  .cardHour {
+    width: 96%!important;
+  }
+  .imgCardHour {
+    width: 16%!important;
+  }
 }
+
 
 @media screen and (min-width: 768px) {
   .cardGiorno {
