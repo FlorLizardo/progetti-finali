@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 
 const InputMeteo = ({myFetchWeather, search, setSearch}) => {

@@ -6,54 +6,70 @@ body {
 color: #ffff;
 }
 
+.cardHour {
+  width: 18%
+}
+
+.imgCardHour{
+  width: 50%;
+}
+
+.cardWeather {
+  width: 34%;
+  height: 6rem;
+  background-color: rgba(71, 156, 161, 0.4);
+}
+
+.col-card-weather {
+  height: 80%;
+}
+
+.divImgCardWeather {
+  width: 28%
+}
+
+.divContainer {
+  height: 84%
+}
+
+.cardGiorno {
+  width: 100%;
+  height: 11vh;
+}
+
 @media screen and (max-width: 575px) {
   .cardWeather {
-    width: 70%!important;
-    height: 6rem!important;
+    width: 80%;
+    height: 5rem;
   }
   .divImgCardWeather {
-    width: 22%!important;
+    width: 22%;
   }
   .divInfoCard {
     width: 70%;
-  }
- 
+  } 
 }
 
-@media screen and (max-width: 767px) {
-  .cardGiorno {
-    width: 100%!important;
-    height: 15vh!important;
-  }
+@media screen and (max-width: 768px) {
+  
   .cardCity {
     width: 90%;
-    height: 20rem
-  }
-  .colContainer {
-    height: 50%!important;
+    height: 24rem
   }
   .divContainer{
-    height: 30%!important;
-  }
-  .graficoContainer{
-    height: 30%!important;
+    height: 30%;
   }
   .cardHour {
-    width: 96%!important;
+    width: 96%;
   }
   .imgCardHour {
-    width: 16%!important;
+    width: 16%;
   }
 }
 
-
 @media screen and (min-width: 768px) {
-  .cardGiorno {
-    width: 16%!important;
-    height: 20vh!important;
-  }
-  .cardCity {
-    width: 70%;
+   .cardCity {
+    width: 79%;
     height: 27rem
   }
 }

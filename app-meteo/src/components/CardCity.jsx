@@ -91,10 +91,10 @@ const CardCity = () => {
 				</h3>
 				<p className="mt-3 h5">
 					<span>
-						<i className="bi bi-arrow-up"></i>
+						<i className="bi bi-arrow-up text-white-50"></i>
 						{weatherData.fetchWeather?.main?.temp_max.toFixed(1)} °C /{" "}
 						{weatherData.fetchWeather?.main?.temp_min.toFixed(1)} °C
-						<i className="bi bi-arrow-down"></i>
+						<i className="bi bi-arrow-down text-white-50"></i>
 					</span>
 				</p>
 			</div>

@@ -6,17 +6,6 @@ import wind from "../assets/wind.png";
 import { useSelector } from 'react-redux';
 
 const CardsWeather = () => {
-	const styles = {
-		containerCard: {
-			width: "36%",
-			height: "8rem",
-			backgroundColor: "rgba(71, 156, 161, 0.4)",
-		},
-		divImg: {
-			width: "28%"
-		}
-	}
-
 	const weatherData = useSelector(state => state.fetchWeather)
 
   return (
@@ -24,13 +13,12 @@ const CardsWeather = () => {
       <Col
 				xs="12"
 				md="6"
-				className="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-md-start ps-md-5 flex-wrap column-gap-4 row-gap-4 row-gap-md-0 py-5"
+				className="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center justify-content-md-start column-gap-4 row-gap-4 row-gap-md-4 ps-md-5 py-4 py-md-0 my-auto col-card-weather"
 			>
 				<Card
-					className=" ps-2 border border-0 rounded rounded-3 d-flex  flex-row align-items-center text-white cardWeather"
-					style={styles.containerCard}
+					className="ps-2 border border-0 rounded rounded-3 d-flex flex-row align-items-center text-white cardWeather"
 				>
-					<div style={styles.divImg} className='divImgCardWeather ms-sm-0 ms-3'>
+					<div className='ms-sm-0 ms-3 divImgCardWeather'>
 						<img src={cloudSun} alt="" className="w-75" />
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">
@@ -40,9 +28,9 @@ const CardsWeather = () => {
 				</Card>
 				<Card
 					className=" ps-2 border border-0 rounded rounded-3 d-flex flex-row align-items-center text-white cardWeather"
-					style={styles.containerCard}
+					
 				>
-					<div style={styles.divImg} className='divImgCardWeather ms-sm-0 ms-3'>
+					<div className='ms-sm-0 ms-3 divImgCardWeather'>
 						<img src={cloud} alt="" className="w-100" />
 					</div>
 					<div className="text-center p-sm-3 p-4 divInfoCard">
@@ -52,9 +40,8 @@ const CardsWeather = () => {
 				</Card>
 				<Card
 					className="ps-2 border border-0 rounded rounded-3 d-flex flex-row align-items-center text-white cardWeather"
-					style={styles.containerCard}
 				>
-					<div style={styles.divImg} className='divImgCardWeather ms-sm-0 ms-3'>
+					<div className='ms-sm-0 ms-3 divImgCardWeather'>
 						<img src={wind} alt="" className="w-75" />
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">
@@ -64,9 +51,8 @@ const CardsWeather = () => {
 				</Card>
 				<Card
 					className="border border-0 rounded rounded-3 d-flex flex-row align-items-center ps-2 text-white cardWeather"
-					style={styles.containerCard}
 				>
-					<div style={styles.divImg} className='divImgCardWeather ms-sm-0 ms-3'>
+					<div className='ms-sm-0 ms-3 divImgCardWeather'>
 						<img src={umidity} alt="" className="w-75" />
 					</div>
 					<div className="text-center p-sm-1 p-4 divInfoCard">

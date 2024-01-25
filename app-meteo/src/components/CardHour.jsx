@@ -5,22 +5,9 @@ import cloudCard from "../assets/cloudCard.png";
 import snowCard from "../assets/snowCard.png";
 import rainCard from "../assets/rainCard.png";
 import mistCard from "../assets/fog-icon-8.jpg";
-import moonCard from '../assets/moon-card.png'
 
 const CardHour = ({ datiTotali }) => {
-  const styles = {
-    divContainer: {
-      width: '40%',
-      height: '20%',
-    },
-    img: {
-      width: '6%'
-    },
-    divCard: {
-      width: '18%'
-    }
-  };
-
+ 
   const weatherData = useSelector((state) => state.fetchWeather); //mi porto lo stato generale della fetch weather per utilizarlo per spingere la funzione formatedDate. Questea funzione formatta l'ora e la data ricevute dall'api
   const [hourWeather, setHourWeather] = useState([]);
 
@@ -34,7 +21,6 @@ const CardHour = ({ datiTotali }) => {
   };
 
   const datiFormated = () => {
-    
       const results = datiTotali.map((el) => {
         const dateApi = el.dt_txt.split(" ")[0];
         const hourApi = el.dt_txt.split(" ")[1];
@@ -73,12 +59,12 @@ const CardHour = ({ datiTotali }) => {
   }
 
   return (
-    <div className="w-100 d-flex flex-md-row flex-column gap-2 text-center">
+    <div className="w-100 w-md-75 d-flex flex-column flex-md-row gap-1 text-center ps-2 ps-md-0">
       {datiTotali?.slice(0, 6).map((list, index) => {
         const weather = list.weather[0]?.main;
         const image = weatherImage(weather);
         return (
-        <div key={index} className="d-flex flex-row flex-md-column cardHour align-items-center" style={styles.divCard}>
+        <div key={index} className="d-flex flex-row flex-md-column align-items-center cardHour">
           <div className="order-1 d-flex align-items-center">
             <p className="m-0 text-white-50">
             <span>{hourWeather[index]?.date} / </span>
@@ -86,7 +72,7 @@ const CardHour = ({ datiTotali }) => {
             </p>
           </div>
           <p className="m-0 fw-medium order-3 order-md-2">{list.main.temp.toFixed(1)} °C</p>
-          <img src={image} alt="imagine del tempo" className="w-50 m-auto order-2 order-md-3 imgCardHour" />
+          <img src={image} alt="immagine del tempo" className="m-auto order-2 order-md-3 imgCardHour" />
         </div>
         )}
       )}

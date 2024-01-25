@@ -3,10 +3,16 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isErrorActions } from "../actions/alertErrorActions";
 import Grafico from "./Grafico";
-import CardsPrevisioni from "./cardsPrevisioni";
+import CardsPrevisioni from "./CardsPrevisioni";
 import CardHour from "./CardHour";
 
 const Previsioni = () => {
+	const styles = {
+		colStyle: {
+			backgroundColor: "rgba(71, 156,161, 0.4)"
+		}
+	}
+
 	const [forecast, setForecast] = useState([]); //solo i dati delle date e le temperature
 	const [datiTotali, setDatiTotali] = useState([]); //tutti i dati della fetch
 	const weatherData = useSelector((state) => state.fetchWeather);
@@ -80,37 +86,30 @@ const Previsioni = () => {
 		}
 	}, [weatherData]);
 
-	const styles = {
-		colStyle: {
-			backgroundColor: "rgba(71, 156,161, 0.4)"
-		},
-		divGrafico: {
-			height: '84%'
-		}
-	}
+
 
 	return (
 		<>
 		<Col xs="12"
-			md="10"
-			className="my-5 m-auto rounded rounded-3 px-5 py-4"
+			md="9"
+			className="my-5 m-auto rounded rounded-3 py-3 d-flex flex-column justify-content-center align-items-center"
 			style={styles.colStyle}>
-				<h4 className="pb-3">Il tempo nelle prossime ore</h4>
+				<h4 className="pb-3 text-center">Il tempo nelle prossime ore</h4>
 				<CardHour datiTotali={datiTotali} />
 		</Col>
 		<Col
 			xs="12"
 			md="8"
-			className="my-5 m-auto rounded rounded-3 colContainer"
+			className="my-5 m-auto rounded rounded-3 m-auto"
 			style={styles.colStyle}
 		>
 			<div>
 				<h4 className="text-center p-3">Previsioni a 5 giorni</h4>
 			</div>
-			<div className="w-100 divContainer d-none d-md-block" style={styles.divGrafico}>
+			<div className="w-100 d-none d-md-block divContainer">
 			<Grafico forecast={forecast} />
 			</div>
-			<div className="d-block d-md-none">
+			<div className="d-block d-md-none d-flex justify-content-center">
 				<CardsPrevisioni forecast={forecast} />
 			</div>	
 		</Col>
