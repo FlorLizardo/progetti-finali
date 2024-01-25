@@ -4,6 +4,15 @@ import Job from "./Job";
 import { Link, useParams } from "react-router-dom";
 
 const CompanySearchResults = () => {
+  const styles = {
+    containerPosting: {
+      minHeight: '95vh'
+    },
+    colorJob: {
+      color: '#BF5353'
+    }
+  }
+
   const [jobs, setJobs] = useState([]);
   const params = useParams();
 
@@ -29,15 +38,16 @@ const CompanySearchResults = () => {
   };
 
   return (
-    <Container>
+    <Container className="mt-4" style={styles.containerPosting}>
       <Row>
-        <Col xs={12}>
-          <Link to='/' className="btn btn-warning">
-          <i className="bi bi-arrow-left-square fs-4"></i>
-          </Link>
-          </Col>
-        <Col className="my-4">
-          <h1 className="display-4 mb-5"><span className="fw-normal">Job posting for: </span>{params.company}</h1>
+      <Col xs={3}>
+					<Link to="/" className="btn btn-outline-secondary mb-2 py-0 px-2 fs-6">
+						<i class="bi bi-chevron-double-left"></i>
+						Back to Home
+					</Link>
+				</Col>
+        <Col xs={10} className="my-4">
+          <h1 className="display-4 mb-5"><span className="fw-normal">Job posting for: </span><span style={styles.colorJob}>{params.company}</span></h1>
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}

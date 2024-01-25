@@ -1,12 +1,14 @@
 import { SET_AZIENDA, REMOVE_AZIENDA } from "../actions/favouriteActions";
 
+//inizializzo lo stato
 const initialState = {
 	nomeAzienda: [],
 };
 
+//stabilisco i casi per ogni action
 const favouriteReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SET_AZIENDA:
+		case SET_AZIENDA: 
 			return {
 				...state,
 				nomeAzienda: [...state.nomeAzienda, action.payload],

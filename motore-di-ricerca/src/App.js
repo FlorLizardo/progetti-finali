@@ -6,17 +6,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import store from './store/store'
 import { Provider } from "react-redux";
 import FavouriteCompany from "./components/FavouriteCompany";
+import NavBar from "./components/NavBar";
+import FooterSection from "./components/FooterSection";
 
 
 function App() {
   return (
     <Provider store={store}>
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route path="/" element={<MainSearch />} />
         <Route path="/:company" element={<CompanySearchResults />} />
         <Route path="/favourites" element={<FavouriteCompany />} />
       </Routes>
+      <FooterSection />
     </BrowserRouter>
     </Provider>
   );
