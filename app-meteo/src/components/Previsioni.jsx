@@ -9,9 +9,9 @@ import CardHour from "./CardHour";
 const Previsioni = () => {
 	const styles = {
 		colStyle: {
-			backgroundColor: "rgba(71, 156,161, 0.4)"
-		}
-	}
+			backgroundColor: "rgba(71, 156,161, 0.4)",
+		},
+	};
 
 	const [forecast, setForecast] = useState([]); //solo i dati delle date e le temperature
 	const [datiTotali, setDatiTotali] = useState([]); //tutti i dati della fetch
@@ -36,7 +36,7 @@ const Previsioni = () => {
 
 	//funzione per selezionare solo i giorni
 	const dataList = (data) => {
-		const dailyTemp = [];
+		const dailyTemp = {};
 
 		//per ogni elemento dentro a data.list si fa un forEach per prendere le date, si fa lo split per dividire la stringa in un array e poi si prende solo il primo di questi, che è quello che contiene la data. Se la data non esiste ancora, si aggiunge al ogg dailyTemp
 		data.list.forEach((el) => {
@@ -46,28 +46,25 @@ const Previsioni = () => {
 			if (!dailyTemp[date]) {
 				dailyTemp[date] = {
 					date,
-					temperatures: [],
 					tempMax: -Infinity, //inizializzo l'array con un numero molto basso per poi comparare quando uso Math.max
 					tempMin: Infinity, //inizializzo l'array con un numero molto alto per poi comparare quando uso Math.min
+					weatherMain: null,
 				};
 			}
 
-			dailyTemp[date].temperatures.push(el.main.temp);
-			dailyTemp[date].tempMax = Math.max(
-				dailyTemp[date].tempMax,
-				el.main.temp_max
-			); //uso Math.max per estrarre il numero più alto tra i due comparati: quello che esiste in tempMax e quello che arriva dall'api
-			dailyTemp[date].tempMin = Math.min(
-				dailyTemp[date].tempMin,
-				el.main.temp_min
-			); //uso Math.min per estrarre il numero più basso tra i due comparati: quello che esiste in tempMin e quello che arriva dall'api
+			dailyTemp[date].tempMax = Math.max(dailyTemp[date].tempMax, el.main.temp_max); //uso Math.max per estrarre il numero più alto tra i due comparati: quello che esiste in tempMax e quello che arriva dall'api
+			dailyTemp[date].tempMin = Math.min(dailyTemp[date].tempMin, el.main.temp_min); //uso Math.min per estrarre il numero più basso tra i due comparati: quello che esiste in tempMin e quello che arriva dall'api
+
+			if (dailyTemp[date].weatherMain === null) {
+				dailyTemp[date].weatherMain = el.weather?.[0].main;
+			}
 		});
 
-		const result = Object.values(dailyTemp).map(({ date, tempMax, tempMin }) => ({
-			//uso Object per trasformare le values in array e poi fare il map su ognuno
+		const result = Object.values(dailyTemp).map(({ date, tempMax, tempMin, weatherMain }) => ({
 			date,
 			tempMax,
 			tempMin,
+			weatherMain,
 		}));
 
 		setForecast(result);
@@ -86,33 +83,33 @@ const Previsioni = () => {
 		}
 	}, [weatherData]);
 
-
-
 	return (
 		<>
-		<Col xs="12"
-			md="9"
-			className="my-5 m-auto rounded rounded-3 py-3 d-flex flex-column justify-content-center align-items-center"
-			style={styles.colStyle}>
+			<Col
+				xs="11"
+				md="8"
+				className="my-5 m-auto rounded rounded-3 py-3 d-flex flex-column justify-content-center align-items-center"
+				style={styles.colStyle}
+			>
 				<h4 className="pb-3 text-center">Il tempo nelle prossime ore</h4>
 				<CardHour datiTotali={datiTotali} />
-		</Col>
-		<Col
-			xs="12"
-			md="8"
-			className="my-5 m-auto rounded rounded-3 m-auto"
-			style={styles.colStyle}
-		>
-			<div>
-				<h4 className="text-center p-3">Previsioni a 5 giorni</h4>
-			</div>
-			<div className="w-100 d-none d-md-block divContainer">
-			<Grafico forecast={forecast} />
-			</div>
-			<div className="d-block d-md-none d-flex justify-content-center">
-				<CardsPrevisioni forecast={forecast} />
-			</div>	
-		</Col>
+			</Col>
+			<Col
+				xs="12"
+				md="8"
+				className="my-5 m-auto rounded rounded-3 m-auto"
+				style={styles.colStyle}
+			>
+				<div>
+					<h4 className="text-center p-3">Previsioni a 5 giorni</h4>
+				</div>
+				<div className="w-100 d-none d-md-block divContainer">
+					<Grafico forecast={forecast} />
+				</div>
+				<div className="d-block d-md-none d-flex justify-content-center">
+					<CardsPrevisioni forecast={forecast} />
+				</div>
+			</Col>
 		</>
 	);
 };

@@ -13,7 +13,7 @@ const CardsWeather = () => {
       <Col
 				xs="12"
 				md="6"
-				className="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center justify-content-md-start column-gap-4 row-gap-4 row-gap-md-4 ps-md-5 py-4 py-md-0 my-auto col-card-weather"
+				className="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center justify-content-md-start column-gap-4 row-gap-4 row-gap-md-4 ps-md-5 py-4 py-md-0 my-auto"
 			>
 				<Card
 					className="ps-2 border border-0 rounded rounded-3 d-flex flex-row align-items-center text-white cardWeather"

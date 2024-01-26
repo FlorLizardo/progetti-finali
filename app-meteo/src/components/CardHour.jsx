@@ -59,7 +59,7 @@ const CardHour = ({ datiTotali }) => {
   }
 
   return (
-    <div className="w-100 w-md-75 d-flex flex-column flex-md-row gap-1 text-center ps-2 ps-md-0">
+    <div className="d-flex flex-column flex-md-row gap-1 text-center ps-2 ps-md-0">
       {datiTotali?.slice(0, 6).map((list, index) => {
         const weather = list.weather[0]?.main;
         const image = weatherImage(weather);

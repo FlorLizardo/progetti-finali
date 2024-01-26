@@ -61,6 +61,9 @@ const CardCity = () => {
 		case "Mist":
 			image = mistCard;
 			break;
+		case 'Fog':
+			image = mistCard;
+			break
 		default:
 			image = "";
 	}
@@ -82,11 +85,11 @@ const CardCity = () => {
 				</div>
 				<div className="d-flex flex-row align-items-center mt-md-2">
 					<i className="bi bi-thermometer-half fs-1"></i>
-					<h2 className="display-1 ps-2 py-2">
+					<h2 className="display-2 ps-2 py-2">
 						{weatherData.fetchWeather?.main?.temp.toFixed(1)} °C
 					</h2>
 				</div>
-				<h3 className="h5 ps-2 pt-md-4">
+				<h3 className="h5 ps-2 pt-md-4 text-white-50">
 					TP: {weatherData.fetchWeather?.main?.feels_like.toFixed(1)} °C
 				</h3>
 				<p className="mt-3 h5">
